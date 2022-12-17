@@ -10,7 +10,10 @@ public class SpiderBehaviour : MonoBehaviour
 {
     [SerializeField] private Rigidbody rb;
     [SerializeField] private List<GameObject> waypoints = new List<GameObject>();
-    [SerializeField] private float moveSpeed = 3f;
+    [SerializeField] private GameObject player;
+    [Space]
+    [SerializeField] private bool chasePlayer = false;
+    [SerializeField] private float moveSpeed = 1000f;
     [SerializeField] private float rotateSpeed = 3f;
     [SerializeField] private float howCloseCanReachTarget = 0.3f;
 
@@ -38,15 +41,23 @@ public class SpiderBehaviour : MonoBehaviour
 
     private void Move()
     {
-        Vector3 direction = waypoints.ElementAt(currentIndex).transform.position - transform.position;
+        Vector3 direction;
+        if (chasePlayer)
+        {
+            direction = player.transform.position - transform.position;
+        }
+        else
+        {
+            direction = waypoints.ElementAt(currentIndex).transform.position - transform.position;
+        }
 
-        if(direction.magnitude < howCloseCanReachTarget)
+        if(!chasePlayer && direction.magnitude < howCloseCanReachTarget)
         {
             rb.velocity = Vector3.zero;
             currentIndex = currentIndex+1 <  waypoints.Count ? currentIndex+1 : 0;
             return;
         }
 
-        rb.AddForce(direction.normalized * Time.deltaTime * moveSpeed, ForceMode.VelocityChange);
+        rb.AddForce(direction.normalized * Time.deltaTime * moveSpeed);
     }
 }

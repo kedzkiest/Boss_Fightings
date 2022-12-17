@@ -3918,6 +3918,8 @@ MonoBehaviour:
   - {fileID: 912777683}
   - {fileID: 1454080280}
   - {fileID: 426820785}
-  moveSpeed: 10
+  player: {fileID: 719502105}
+  chasePlayer: 0
+  moveSpeed: 500
   rotateSpeed: 3
   howCloseCanReachTarget: 1
