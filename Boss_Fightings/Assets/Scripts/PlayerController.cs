@@ -9,17 +9,28 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float speed_move;
     [SerializeField] private float speed_rot;
 
+    private Animator anim;
+    private CharacterController characterController;
+    private bool grounded;
+
     // Start is called before the first frame update
     private void Start()
     {
-        
+        anim = GetComponent<Animator>();
+        characterController = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
     private void Update()
     {
+        JudgeGrounded();
         Rotate();
         Move();
+    }
+
+    private void JudgeGrounded()
+    {
+
     }
 
     private void Rotate()
@@ -38,6 +49,15 @@ public class PlayerController : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
-        transform.position += new Vector3(horizontal, 0, vertical) * speed_move * Time.deltaTime;
+        characterController.Move(new Vector3(horizontal, Physics.gravity.y, vertical) * speed_move * Time.deltaTime);
+
+        if(horizontal != 0 || vertical != 0)
+        {
+            anim.SetBool("Run", true);
+        }
+        else
+        {
+            anim.SetBool("Run", false);
+        }
     }
 }
