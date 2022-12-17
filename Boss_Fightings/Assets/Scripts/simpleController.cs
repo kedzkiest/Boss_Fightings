@@ -9,9 +9,6 @@ public class simpleController : MonoBehaviour
     [SerializeField] float speed = 6;
     private Vector3 velocity;
 
-    private float turnSmoothVelocity;
-    [SerializeField] float turnSmoothTime = 0.1f;
-
     // Update is called once per frame
     void Update()
     {
