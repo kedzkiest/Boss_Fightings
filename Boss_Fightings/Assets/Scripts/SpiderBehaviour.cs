@@ -11,6 +11,7 @@ public class SpiderBehaviour : MonoBehaviour
     [SerializeField] private Rigidbody rb;
     [SerializeField] private List<GameObject> waypoints = new List<GameObject>();
     [SerializeField] private GameObject player;
+    [SerializeField] private Light lamp;
     [Space]
     [SerializeField] private bool chasePlayer = false;
     [SerializeField] private float moveSpeed = 1000f;
@@ -30,6 +31,7 @@ public class SpiderBehaviour : MonoBehaviour
     {
         Rotate();
         Move();
+        ChangeLampColor();
     }
 
     private void Rotate()
@@ -59,5 +61,11 @@ public class SpiderBehaviour : MonoBehaviour
         }
 
         rb.AddForce(direction.normalized * Time.deltaTime * moveSpeed);
+    }
+
+    private void ChangeLampColor()
+    {
+        if (lamp == null) return;
+        lamp.color = chasePlayer ? Color.red : Color.blue;
     }
 }
