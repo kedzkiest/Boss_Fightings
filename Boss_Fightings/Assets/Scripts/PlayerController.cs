@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
 
     private Animator anim;
     private CharacterController characterController;
-    private bool grounded;
+    private bool canMove;
 
     // Start is called before the first frame update
     private void Start()
@@ -23,14 +23,12 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        JudgeGrounded();
+        //if (!controllable) return;
+
         Rotate();
+        if (!canMove) return;
+
         Move();
-    }
-
-    private void JudgeGrounded()
-    {
-
     }
 
     private void Rotate()
@@ -49,6 +47,11 @@ public class PlayerController : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
+        if (Input.GetKey(KeyCode.Alpha0))
+        {
+            Time.timeScale = Time.timeScale == 0 ? 1 : 0;
+        }
+
         characterController.Move(new Vector3(horizontal, Physics.gravity.y, vertical) * speed_move * Time.deltaTime);
 
         if(horizontal != 0 || vertical != 0)
@@ -59,5 +62,10 @@ public class PlayerController : MonoBehaviour
         {
             anim.SetBool("Run", false);
         }
+    }
+
+    public void SetCanMoveState(bool isControllable)
+    {
+        canMove = isControllable;
     }
 }
