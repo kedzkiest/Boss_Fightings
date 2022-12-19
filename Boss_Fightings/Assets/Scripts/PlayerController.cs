@@ -18,16 +18,15 @@ public class PlayerController : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         characterController = GetComponent<CharacterController>();
+        canMove = true;
     }
 
     // Update is called once per frame
     private void Update()
     {
-        //if (!controllable) return;
-
         Rotate();
-        if (!canMove) return;
 
+        if (!canMove) return;
         Move();
     }
 
