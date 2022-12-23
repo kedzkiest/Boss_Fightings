@@ -5391,6 +5391,7 @@ GameObject:
   - component: {fileID: 719502116}
   - component: {fileID: 719502113}
   - component: {fileID: 5866666020775002151}
+  - component: {fileID: 5866666020775002152}
   m_Layer: 0
   m_Name: Banana Man
   m_TagString: Player
@@ -6776,6 +6777,20 @@ MonoBehaviour:
   nozzle: {fileID: 417552207}
   cam: {fileID: 330585545}
   rayLength: 50
+--- !u!114 &5866666020775002152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148146602214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b490cfefa3d3b164eabcc79d7fe8be8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startHealth: 100
+  healthBar: {fileID: 0}
 --- !u!1 &5877004154623609108
 GameObject:
   m_ObjectHideFlags: 0

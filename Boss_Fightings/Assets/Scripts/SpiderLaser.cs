@@ -23,6 +23,8 @@ public class SpiderLaser : MonoBehaviour
     private Hovl_Laser LaserScript;
     private Hovl_Laser2 LaserScript2;
 
+    private bool fireState;
+
     void Start ()
     {
 
@@ -30,6 +32,20 @@ public class SpiderLaser : MonoBehaviour
 
     void Update()
     {
+        if(Mathf.Floor(Time.time) % 3 == 0)
+        {
+            if (fireState)
+            {
+                stop = true;
+                fireState = false;
+            }
+            else
+            {
+                fire = true;
+                fireState = true;
+            }
+        }
+
         //Enable lazer
         if (fire)
         {
