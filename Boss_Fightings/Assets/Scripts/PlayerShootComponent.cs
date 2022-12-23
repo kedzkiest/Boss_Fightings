@@ -94,14 +94,17 @@ public class PlayerShootComponent : MonoBehaviour
         bullet.transform.localScale *= 0.2f;
         bullet.tag = "Bullet";
 
-        bullet.AddComponent<Rigidbody>();
-        bullet.AddComponent<SphereCollider>();
+        SphereCollider sc = bullet.GetComponent<SphereCollider>();
+        sc.isTrigger = true;
+        sc.radius = 3;
         //Debug.DrawRay(nozzle.transform.position, bulletDest - nozzle.transform.position, Color.red, 1);
+        bullet.AddComponent<Rigidbody>();
         bullet.GetComponent<Rigidbody>().AddForce((bulletDest-nozzle.transform.position) * Time.deltaTime * bulletSpeed, ForceMode.Impulse);
 
         
         bullet.AddComponent<TrailRenderer>();
         TrailRenderer tr = bullet.GetComponent<TrailRenderer>();
+        tr.time = 0.1f;
         tr.startWidth = 0.2f;
         tr.endWidth = 0.2f;
         

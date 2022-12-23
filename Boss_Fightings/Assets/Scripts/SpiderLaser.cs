@@ -64,7 +64,6 @@ public class SpiderLaser : MonoBehaviour
             RotateToMouseDirection(gameObject, target.transform.position - transform.position);
             //LaserEndPoint = pos;
         }
-
     }
   
     //To rotate fire point
