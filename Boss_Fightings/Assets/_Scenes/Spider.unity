@@ -4219,6 +4219,7 @@ GameObject:
   - component: {fileID: 2023374320}
   - component: {fileID: 5546717744517003493}
   - component: {fileID: 5546717744517003494}
+  - component: {fileID: 5546717744517003495}
   m_Layer: 0
   m_Name: SpiderOrange
   m_TagString: Enemy
@@ -5392,7 +5393,7 @@ GameObject:
   - component: {fileID: 5866666020775002151}
   m_Layer: 0
   m_Name: Banana Man
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6687,6 +6688,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &5546717744517003495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537008422552545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e08adecdb35dfab449a07b0ff41310f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 919132148146602214}
+  FirePoint: {fileID: 1196071742103325}
+  MaxLength: 50
+  Prefabs:
+  - {fileID: 1962479828434100, guid: b478a3c4c8ae3bb42a5785ab95bcf6d3, type: 3}
+  fire: 0
 --- !u!1 &5555498667319025260
 GameObject:
   m_ObjectHideFlags: 0
