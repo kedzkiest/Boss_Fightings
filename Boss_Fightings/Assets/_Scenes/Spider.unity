@@ -6706,6 +6706,7 @@ MonoBehaviour:
   Prefabs:
   - {fileID: 1962479828434100, guid: b478a3c4c8ae3bb42a5785ab95bcf6d3, type: 3}
   fire: 0
+  stop: 0
 --- !u!1 &5555498667319025260
 GameObject:
   m_ObjectHideFlags: 0
@@ -6773,6 +6774,8 @@ MonoBehaviour:
   cooldownOnShoot: 0.55
   bulletSpeed: 10000
   nozzle: {fileID: 417552207}
+  cam: {fileID: 330585545}
+  rayLength: 50
 --- !u!1 &5877004154623609108
 GameObject:
   m_ObjectHideFlags: 0

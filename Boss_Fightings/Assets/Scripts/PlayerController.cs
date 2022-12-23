@@ -11,22 +11,22 @@ public class PlayerController : MonoBehaviour
 
     private Animator anim;
     private CharacterController characterController;
-    private bool canMove;
+    private bool canControll;
 
     // Start is called before the first frame update
     private void Start()
     {
         anim = GetComponent<Animator>();
         characterController = GetComponent<CharacterController>();
-        canMove = true;
+        canControll = true;
     }
 
     // Update is called once per frame
     private void Update()
     {
-        Rotate();
+        if (!canControll) return;
 
-        if (!canMove) return;
+        Rotate();
         Move();
     }
 
@@ -63,8 +63,8 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void SetCanMoveState(bool isControllable)
+    public void SetCanControllState(bool isControllable)
     {
-        canMove = isControllable;
+        canControll = isControllable;
     }
 }
